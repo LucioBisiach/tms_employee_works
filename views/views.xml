@@ -7,10 +7,39 @@
             <field name="model">hr.payslip</field>
             <field name="inherit_id" ref="om_hr_payroll.view_hr_payslip_form"/>
             <field name="arch" type="xml">
+
+              <field name="number" position="before">
+                <field name="employee_tms"/>
+              </field>
+
               <page position="after">
                   <page name="works_employee"
-                      string="Trabajos Realizados">
-                      <field name="ids_services"/>
+                      string="Calculo de Viaticos">
+                      <group>
+                        <button name="get_viaticos" string="Actualizar Viaticos" class="btn btn-warning" type="object"/>
+                      </group>
+                      <group>
+                        <group> 
+                          <field name="qty_viatico_comida"/>
+                          <field name="qty_viatico_especial"/>
+                          <field name="qty_viatico_km_he"/>
+                        </group>
+                        <group>
+                          <field name="qty_viatico_km"/>
+                          <field name="qty_viatico_ccyd"/>
+                          <field name="qty_viatico_he"/>
+                        </group>
+                      </group>
+                      <!-- <field name="ids_services">
+                        <tree editable="buttom">
+                          <field name="name"/>
+                          <field name="label_service"/>
+                          <field name="date_start"/>
+                          <field name="date_stop"/>
+                          <field name="location_load"/>
+                          <field name="location_download"/>
+                        </tree>
+                      </field> -->
                   </page>
               </page>
             </field>
